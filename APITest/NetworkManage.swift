@@ -14,9 +14,7 @@ import UIKit
         let url = "https://dog.ceo/api/breeds/image/random"
         var plug = Dog(message: "", status: "")
         
-        guard let url2 = URL(string: url) else {
-            
-            return plug }
+        guard let url2 = URL(string: url) else { return plug }
         
         URLSession.shared.dataTask(with: url2) { data, _, error in
             guard let data = data else {

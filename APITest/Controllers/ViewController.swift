@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             let data = fetchDataDog()
             
             DispatchQueue.main.async {
-                print("\(data)")
+                print("Данные из NetworkManage вызванные в ViewController -  \(data)")
             }
         }
     }
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         guard let rightSideString = strArrays.last else { return "" }
         let stringsBetweenCharacter = rightSideString.components(separatedBy: "/")
         
-        guard let name = stringsBetweenCharacter.first else { return "Не преобразовал ссылку в нужную строку" }
+        guard let name = stringsBetweenCharacter.first else { return ""}
        
         return name
     }
