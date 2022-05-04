@@ -2,9 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,49 +16,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QNT-p9-yzg">
-                                <rect key="frame" x="0.0" y="159.5" width="414" height="377"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QNT-p9-yzg" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="0.0" y="139.5" width="414" height="377"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDr-6c-UXL">
-                                <rect key="frame" x="112" y="664" width="190" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Next image"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="TapButtonNextImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RBR-vj-iNw"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Breed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-mB-esY">
-                                <rect key="frame" x="20" y="106" width="374" height="33.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLY-dA-Hgh">
+                                <rect key="frame" x="129" y="526.5" width="156" height="76"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDr-6c-UXL">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="29.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Next random"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tapButtonNextRandom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cap-pw-eTF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2J-rH-tDc">
+                                        <rect key="frame" x="0.0" y="46.5" width="156" height="29.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Next of breed"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tapButtonNextOfBreed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZdG-Mn-rak"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pDr-6c-UXL" firstAttribute="width" secondItem="VLY-dA-Hgh" secondAttribute="width" multiplier="0.458937" constant="84.444490000000002" id="u3P-Ec-VKV"/>
+                                    <constraint firstItem="pDr-6c-UXL" firstAttribute="height" secondItem="VLY-dA-Hgh" secondAttribute="height" multiplier="0.0345982" constant="26.8655151" id="z3f-zK-sWA"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name breeds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-mB-esY">
+                                <rect key="frame" x="20" y="86" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3L8-0j-Z03">
+                                <rect key="frame" x="20" y="618.5" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="8Oe-mj-YXZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-jk-vSb">
+                                <rect key="frame" x="0.0" y="652.5" width="414" height="209.5"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="DSA-W3-ZmG"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="q3I-MW-6ys"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QNT-p9-yzg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="9rI-DE-n4a"/>
+                            <constraint firstItem="QNT-p9-yzg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-120" id="9rI-DE-n4a"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BDQ-WO-bui"/>
-                            <constraint firstItem="pDr-6c-UXL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BZ4-TF-GHI"/>
-                            <constraint firstItem="pDr-6c-UXL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.458937" id="Cer-Sd-m0K"/>
                             <constraint firstItem="Igy-mB-esY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Hxi-PS-0eJ"/>
-                            <constraint firstItem="pDr-6c-UXL" firstAttribute="top" secondItem="QNT-p9-yzg" secondAttribute="bottom" constant="127.5" id="NXV-8v-QKu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IIQ-jk-vSb" secondAttribute="bottom" id="J18-Dk-y8s"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PZd-O5-ahx"/>
+                            <constraint firstItem="IIQ-jk-vSb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vab-kL-K5c"/>
+                            <constraint firstItem="3L8-0j-Z03" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WIm-IG-PU4"/>
+                            <constraint firstItem="VLY-dA-Hgh" firstAttribute="top" secondItem="QNT-p9-yzg" secondAttribute="bottom" constant="10" id="X9a-ag-BWf"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.420759" id="gVD-YH-WJp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3L8-0j-Z03" secondAttribute="trailing" constant="20" id="hvv-l2-mld"/>
+                            <constraint firstItem="3L8-0j-Z03" firstAttribute="top" secondItem="VLY-dA-Hgh" secondAttribute="bottom" constant="16" id="hyK-yL-58K"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iso-tf-60I"/>
-                            <constraint firstItem="pDr-6c-UXL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0345982" id="mfB-aM-NSl"/>
+                            <constraint firstItem="VLY-dA-Hgh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jxe-yV-LKx"/>
+                            <constraint firstItem="IIQ-jk-vSb" firstAttribute="top" secondItem="3L8-0j-Z03" secondAttribute="bottom" id="lPy-94-CNa"/>
+                            <constraint firstItem="IIQ-jk-vSb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ouu-9n-4mf"/>
+                            <constraint firstItem="IIQ-jk-vSb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x8H-ua-tGR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Igy-mB-esY" secondAttribute="trailing" constant="20" id="zbx-L3-psq"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="top" secondItem="Igy-mB-esY" secondAttribute="bottom" constant="20" id="zqY-ub-Ryp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageDog" destination="QNT-p9-yzg" id="PaO-Sg-6ca"/>
+                        <outlet property="imageDog" destination="QNT-p9-yzg" id="iYb-aZ-PbA"/>
                         <outlet property="nameBreed" destination="Igy-mB-esY" id="Jwu-jL-UB0"/>
+                        <outlet property="pickerOfBreed" destination="IIQ-jk-vSb" id="bef-gp-pA6"/>
+                        <outlet property="textField" destination="3L8-0j-Z03" id="3vy-rZ-r4R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -68,8 +113,5 @@
     </scenes>
     <resources>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
