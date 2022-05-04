@@ -15,7 +15,7 @@ struct Dog: Decodable {
         getData()
     }
     
-//    Вынес сюда т.к. не получилось работать из NetworkManage(
+
     private func getData() -> Data {
         guard let urlImage = URL(string: message) else { return Data() }
         guard let imageData = try? Data(contentsOf: urlImage) else { return Data() }
