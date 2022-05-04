@@ -100,3 +100,4 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         textField.text = DataGog.shared.dog[row]
     }
 }
+
