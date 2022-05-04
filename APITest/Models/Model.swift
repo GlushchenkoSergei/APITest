@@ -11,7 +11,7 @@ struct Dog: Decodable {
     let message: String
     let status: String
     
-    var dataForImage: Data {
+    var imageData: Data {
         getData()
     }
     

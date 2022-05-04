@@ -7,39 +7,32 @@
 
 import Foundation
 import UIKit
-    
-// Заготовка NetworkManage но не рабочая
 
-    func fetchDataDog() -> Dog {
-        let url = "https://dog.ceo/api/breeds/image/random"
-        var plug = Dog(message: "", status: "")
+class NetworkManage {
+    static let shared = NetworkManage()
+    
+    
+    let url = "https://dog.ceo/api/breeds/image/random"
+    
+    
+    func fetchDataDog(url: String, with completion: @escaping(Dog) -> Void ) {
+        guard let url = URL(string: url) else { return }
         
-        guard let url2 = URL(string: url) else { return plug }
-        
-        URLSession.shared.dataTask(with: url2) { data, _, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "Ошибка без описание")
                 return
             }
-           
+            
             guard let dog = try? JSONDecoder().decode(Dog.self, from: data) else { return }
             print(" Данные из NetworkManage - \(dog)")
-            plug = dog
             
+            DispatchQueue.main.async {
+                completion(dog)
+            }
         }.resume()
-        return plug
-    }
-    
-    
-    func fetchImage(from dog: Dog) -> UIImage {
-        let plug = UIImage()
         
-        guard let urlImage = URL(string: dog.message) else { return plug }
-        guard let imageData = try? Data(contentsOf: urlImage) else { return plug }
-        guard let image = UIImage(data: imageData) else { return plug }
-        
-        return image
     }
-    
-
+    private init() {}
+}
 
