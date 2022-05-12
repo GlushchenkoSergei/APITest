@@ -21,7 +21,7 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.inputView = pickerOfBreed
+        textField.text = DataDog.shared.dog[0]
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
     }
