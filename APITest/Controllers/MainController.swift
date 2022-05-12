@@ -93,16 +93,16 @@ extension MainController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        DataGog.shared.dog.count
+        DataDog.shared.dog.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        DataGog.shared.dog[row]
+        DataDog.shared.dog[row]
     }
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField.text = DataGog.shared.dog[row]
+        textField.text = DataDog.shared.dog[row]
     }
 }
 

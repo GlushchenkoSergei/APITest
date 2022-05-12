@@ -25,17 +25,21 @@ class NetworkManage {
             }
             
             guard let dataResponse = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
-            guard let arrays = dataResponse as? [String: Any] else { return }
+            guard let dataForDog = dataResponse as? [String: Any] else { return }
           
 //            В данном случае так же лучше обойтись без принудительного развертывания?
-            let dog = Dog(message: arrays["message"] as? String ?? "", status: arrays["status"] as? String ?? "")
-        
+            guard let urlImage = URL(string: dataForDog["message"] as? String ?? "") else { return }
+            guard let imageData = try? Data(contentsOf: urlImage) else { return }
+            
+            let dog = Dog(message: dataForDog["message"] as? String ?? "", imageData: imageData)
+            
             DispatchQueue.main.async {
                 completion(dog)
             }
         }.resume()
         
     }
+    
     private init() {}
 }
 
