@@ -20,13 +20,16 @@ class NetworkManage {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "Ошибка без описание")
+                print(error?.localizedDescription ?? "Ошибка без описания")
                 return
             }
             
-            guard let dog = try? JSONDecoder().decode(Dog.self, from: data) else { return }
-            print(" Данные из NetworkManage - \(dog)")
-            
+            guard let dataResponse = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
+            guard let arrays = dataResponse as? [String: Any] else { return }
+          
+//            В данном случае так же лучше обойтись без принудительного развертывания?
+            let dog = Dog(message: arrays["message"] as? String ?? "", status: arrays["status"] as? String ?? "")
+        
             DispatchQueue.main.async {
                 completion(dog)
             }

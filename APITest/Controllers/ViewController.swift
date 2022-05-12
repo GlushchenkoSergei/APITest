@@ -17,15 +17,20 @@ class ViewController: UIViewController {
     
     @IBOutlet var pickerOfBreed: UIPickerView!
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     let url = "https://dog.ceo/api/breeds/image/random"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.inputView = pickerOfBreed
+        activityIndicator.isHidden = true
+        activityIndicator.hidesWhenStopped = true
     }
     
     
     @IBAction func tapButtonNextRandom(_ sender: Any) {
+        activityIndicator.startAnimating()
         self.imageDog.animation = "fadeOut"
         self.imageDog.duration = 0.5
         self.imageDog.animate()
@@ -35,6 +40,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func tapButtonNextOfBreed(_ sender: Any) {
+        activityIndicator.startAnimating()
         self.imageDog.animation = "fadeOut"
         self.imageDog.duration = 0.5
         self.imageDog.animate()
@@ -57,6 +63,7 @@ class ViewController: UIViewController {
     private func setDataFormNetwork(from url: String) {
         NetworkManage.shared.fetchDataDog(url: url) { dog in
             guard let image = UIImage(data: dog.imageData) else { return }
+            self.activityIndicator.stopAnimating()
             self.imageDog.image = image
             
             self.imageDog.animation = "fadeIn"

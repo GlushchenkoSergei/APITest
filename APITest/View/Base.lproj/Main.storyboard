@@ -57,24 +57,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name breeds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-mB-esY">
                                 <rect key="frame" x="20" y="86" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3L8-0j-Z03">
                                 <rect key="frame" x="20" y="618.5" width="374" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="8Oe-mj-YXZ"/>
                                 </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-jk-vSb">
                                 <rect key="frame" x="0.0" y="652.5" width="414" height="209.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="DSA-W3-ZmG"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="q3I-MW-6ys"/>
                                 </connections>
                             </pickerView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Fug-ME-WBx">
+                                <rect key="frame" x="188.5" y="319.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,10 +90,12 @@
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BDQ-WO-bui"/>
                             <constraint firstItem="Igy-mB-esY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Hxi-PS-0eJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IIQ-jk-vSb" secondAttribute="bottom" id="J18-Dk-y8s"/>
+                            <constraint firstItem="Fug-ME-WBx" firstAttribute="top" secondItem="Igy-mB-esY" secondAttribute="bottom" constant="200" id="Nr2-KA-nNB"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PZd-O5-ahx"/>
                             <constraint firstItem="IIQ-jk-vSb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vab-kL-K5c"/>
                             <constraint firstItem="3L8-0j-Z03" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WIm-IG-PU4"/>
                             <constraint firstItem="VLY-dA-Hgh" firstAttribute="top" secondItem="QNT-p9-yzg" secondAttribute="bottom" constant="10" id="X9a-ag-BWf"/>
+                            <constraint firstItem="Fug-ME-WBx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bft-hu-0rQ"/>
                             <constraint firstItem="QNT-p9-yzg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.420759" id="gVD-YH-WJp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3L8-0j-Z03" secondAttribute="trailing" constant="20" id="hvv-l2-mld"/>
                             <constraint firstItem="3L8-0j-Z03" firstAttribute="top" secondItem="VLY-dA-Hgh" secondAttribute="bottom" constant="16" id="hyK-yL-58K"/>
@@ -100,6 +109,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Fug-ME-WBx" id="ngV-Hq-9sb"/>
                         <outlet property="imageDog" destination="QNT-p9-yzg" id="iYb-aZ-PbA"/>
                         <outlet property="nameBreed" destination="Igy-mB-esY" id="Jwu-jL-UB0"/>
                         <outlet property="pickerOfBreed" destination="IIQ-jk-vSb" id="bef-gp-pA6"/>
