@@ -7,19 +7,17 @@
 import Spring
 import UIKit
 
-class ViewController: UIViewController {
+class MainController: UIViewController {
 
     
     @IBOutlet var imageDog: SpringImageView!
+    
     @IBOutlet var nameBreed: UILabel!
-    
     @IBOutlet var textField: UITextField!
-    
     @IBOutlet var pickerOfBreed: UIPickerView!
-    
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    let url = "https://dog.ceo/api/breeds/image/random"
+   private let url = "https://dog.ceo/api/breeds/image/random"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +29,9 @@ class ViewController: UIViewController {
     
     @IBAction func tapButtonNextRandom(_ sender: Any) {
         activityIndicator.startAnimating()
-        self.imageDog.animation = "fadeOut"
-        self.imageDog.duration = 0.5
-        self.imageDog.animate()
+        imageDog.animation = "fadeOut"
+        imageDog.duration = 0.5
+        imageDog.animate()
         
         setDataFormNetwork(from: url)
     }
@@ -41,9 +39,9 @@ class ViewController: UIViewController {
     
     @IBAction func tapButtonNextOfBreed(_ sender: Any) {
         activityIndicator.startAnimating()
-        self.imageDog.animation = "fadeOut"
-        self.imageDog.duration = 0.5
-        self.imageDog.animate()
+        imageDog.animation = "fadeOut"
+        imageDog.duration = 0.5
+        imageDog.animate()
         
         let urlForBreed = getURLFor(breed: textField.text ?? "")
         setDataFormNetwork(from: urlForBreed)
@@ -75,7 +73,7 @@ class ViewController: UIViewController {
     }
 }
     
-   extension ViewController {
+   extension MainController {
        private func getNameBreed(from string: String) -> String {
            let plug = "https://images.dog.ceo/breeds/"
            
@@ -89,7 +87,7 @@ class ViewController: UIViewController {
        }
     }
 
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension MainController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
     1
     }
