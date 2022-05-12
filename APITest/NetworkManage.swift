@@ -12,9 +12,6 @@ class NetworkManage {
     static let shared = NetworkManage()
     
     
-    let url = "https://dog.ceo/api/breeds/image/random"
-    
-    
     func fetchDataDog(url: String, with completion: @escaping(Dog) -> Void ) {
         guard let url = URL(string: url) else { return }
         
