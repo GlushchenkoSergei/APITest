@@ -1,8 +1,14 @@
 PODS:
+  - Alamofire (5.6.1)
   - Spring (1.0.9)
 
 DEPENDENCIES:
+  - Alamofire
   - Spring (from `https://github.com/LexDeBash/Spring.git`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
 
 EXTERNAL SOURCES:
   Spring:
@@ -14,8 +20,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/LexDeBash/Spring.git
 
 SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   Spring: 3e8b7d144afa52f26cf1ddba349812388de6ceb7
 
-PODFILE CHECKSUM: f530b6d5aaff1926eb99603c3ab2ae47b61da079
+PODFILE CHECKSUM: b2ba462386695b3967f74e603439f8a1ded086cd
 
 COCOAPODS: 1.11.3

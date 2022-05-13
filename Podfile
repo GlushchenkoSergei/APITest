@@ -5,6 +5,7 @@ target 'APITest' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-pod 'Alomofire'
+pod 'Alamofire'
+pod 'Spring', :git => 'https://github.com/LexDeBash/Spring.git'
 
 end
